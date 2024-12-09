@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim History</title>
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .table-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<!-- Include the navigation bar using Thymeleaf fragment -->
+<div th:insert="fragments :: nav"></div>
+
+<div class="table-container">
+    <h3 class="text-center">Claim History</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Claim Number</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Submitted At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>C12345</td>
+            <td>Car accident</td>
+            <td>Approved</td>
+            <td>2024-12-01</td>
+        </tr>
+        <tr>
+            <td>C67890</td>
+            <td>House damage</td>
+            <td>Pending</td>
+            <td>2024-11-20</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Link to the Bootstrap JavaScript file -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Link to the jQuery file at the JavaScript file -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Link to the JavaScript file -->
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>

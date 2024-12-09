@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Claim</title>
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .claim-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Insurance Claims</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/templates/home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/templates/login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/templates/submit_claim.html">Submit Claim</a></li>
+                <li class="nav-item"><a class="nav-link" href="/templates/admin.html">Admin Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/templates/claim_history.html">Claim History</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="claim-container">
+        <h2 class="form-title text-center">Submit Claim</h2>
+        <form action="/claims/submit" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="claimNumber" class="form-label">Claim Number</label>
+                <input type="text" class="form-control" id="claimNumber" name="claimNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Claim Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="supportingDocument" class="form-label">Upload Supporting Documents</label>
+                <input type="file" class="form-control" id="supportingDocument" name="supportingDocument" multiple>
+                <small class="form-text text-muted">Accepted formats: PDF, JPG, PNG.</small>
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Claim Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+
+    <div class="claim-container mt-4">
+        <h3 class="form-title text-center">Update Claim</h3>
+        <form action="/claims/update" method="POST">
+            <button type="submit" class="btn btn-success w-100">Update</button>
+        </form>
+    </div>
+
+    <div class="claim-container mt-4">
+        <h4 class="form-title text-center">Withdraw Claim</h4>
+        <form action="/claims/withdraw" method="POST" onsubmit="return confirm('Are you sure you want to withdraw your claim?')">
+            <button type="submit" class="btn btn-danger w-100">Withdraw</button>
+        </form>
+    </div>
+
+    <div class="claim-container mt-4">
+        <h4 class="form-title text-center">Admin - Change Claim Status</h4>
+        <form action="/claims/status" method="POST">
+            <div class="mb-3">
+                <label for="claimStatus" class="form-label">Claim Status</label>
+                <select class="form-select" id="claimStatus" name="claimStatus" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Settled">Settled</option>
+                    <option value="Under Review">Under Review</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Update Status</button>
+        </form>
+    </div>
+</div>
+<!-- Link to the jQuery file at the JavaScript file -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>
