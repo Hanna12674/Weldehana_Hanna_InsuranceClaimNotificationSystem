@@ -39,10 +39,10 @@
   </div>
 
 
-  <form action="/claim" method="POST">
+  <form action="/claim" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="claimType" class="form-label">Claim Type</label>
-      <select class="form-select" id="claimType" required>
+      <select class="form-select" id="claimType" name="claimType" required>
         <option value="" disabled selected>Select claim type</option>
         <option value="accident">Accident</option>
         <option value="theft">Theft</option>
@@ -52,22 +52,22 @@
 
     <div class="mb-3">
       <label for="claimDescription" class="form-label">Description</label>
-      <textarea class="form-control" id="claimDescription" rows="4" required></textarea>
+      <textarea class="form-control" id="claimDescription" name="claimDescription" rows="4" required></textarea>
     </div>
 
     <div class="mb-3">
       <label for="claimAmount" class="form-label">Claim Amount</label>
-      <input type="number" class="form-control" id="claimAmount" required>
+      <input type="number" class="form-control" id="claimAmount" name="claimAmount" required>
     </div>
 
     <div class="mb-3">
       <label for="incidentDate" class="form-label">Incident Date</label>
-      <input type="date" class="form-control" id="incidentDate" required>
+      <input type="date" class="form-control" id="incidentDate" name="incidentDate" required>
     </div>
 
     <div class="mb-3">
       <label for="attachments" class="form-label">Upload Documents</label>
-      <input type="file" class="form-control" id="attachments" multiple>
+      <input type="file" class="form-control" id="attachments" name="attachments" multiple>
     </div>
 
     <button type="submit" class="btn btn-primary btn-submit">Submit Claim</button>
