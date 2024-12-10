@@ -16,4 +16,6 @@ public interface ClaimRepository extends JpaRepository<Claim, Long> {
     // Custom query to find claims by status (Updated to use "status" field)
     @Query("SELECT c FROM Claim c WHERE c.status = :claimStatus")
     List<Claim> findClaimsByStatus(@Param("claimStatus") String claimStatus);
+
+    /////////
 }
