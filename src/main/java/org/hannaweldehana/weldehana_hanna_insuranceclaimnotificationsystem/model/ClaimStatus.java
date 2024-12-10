@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name = "customer")
+@Table(name = "claimstatus")
 public class ClaimStatus {
 
     @Id

@@ -1,5 +1,18 @@
 // src/static/js/scripts.js
 
+// Fetch data dynamically:
+fetch('/api/claims')
+    .then(response => response.json())
+    .then(data => {
+        const table = document.querySelector('#claimsTable');
+        data.forEach(claim => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${claim.id}</td><td>${claim.customerName}</td><td>${claim.status}</td>`;
+            table.appendChild(row);
+        });
+    });
+
+
 // Form validation script for claim submission
 document.addEventListener("DOMContentLoaded", function() {
     // Example: Check form submission
